@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <title>BMI CALCULATOR</title>
+    <script>
+        function calculate(){
+            var height = document.getElementById("height").value;
+            var width = document.getElementById("width").value;
+
+            var resultt = width / (height ** 2);
+            var result = (resultt).toFixed(2);
+            document.getElementById("bmi-output").innerHTML = result;
+            if (result < 18.5) {
+                document.getElementById("bmi-status").innerHTML = "You Are Underweight";
+            }
+            else if (result > 18.5 && result < 25.0) {
+                document.getElementById("bmi-status").innerHTML = "You Are Healthy";
+            }
+            else if (result > 25.0 && result < 29.9) {
+                document.getElementById("bmi-status").innerHTML = "You Are Overweight";
+            }
+            else if (result > 29.9) {
+                document.getElementById("bmi-status").innerHTML = "You Are Obese";
+
+        }
+    }
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            box-sizing: border-box;
+
+        }
+
+        .main {
+            background-color: #12153b;
+            padding-bottom: 20px;
+            border: 1px solid white;
+            margin: auto;
+            width: 400px;
+            text-align: center;
+        }
+
+        .head h1 {
+            color: white;
+            font-family: Tahoma;
+            font-weight: bold;
+            font-size: 30px;
+        }
+
+        .gender {
+            display: flex;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        .male {
+            margin: 10px;
+            border: 1px solid rgb(39, 43, 76);
+            background-color: rgb(39, 43, 76);
+            border-radius: 10px;
+            width: 150px;
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin: auto;
+        }
+
+        .male p {
+            color: white;
+            font-family: sans-serif;
+        }
+
+        .male:active {
+            opacity: 0.5;
+        }
+
+        .height,
+        .width {
+            border: 1px solid #141a3c;
+            background-color: #141a3c;
+            border-radius: 5px;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .height p label,
+        .width p label {
+            color: #c1c6df;
+            font-family: sans-serif;
+        }
+
+        .height input,
+        .width input {
+            background-color: #141a3c;
+            border: 1px solid #141a3c;
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 40px;
+            width: 200px;
+        }
+
+        button {
+            color: white;
+            padding-left: 40px;
+            padding-right: 40px;
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-family: sans-serif;
+            font-size: 18px;
+            background-color: rgb(255, 0, 103);
+            border: 1px solid rgb(255, 0, 103);
+            margin-bottom: 20px;
+        }
+
+        .modal h1 {
+            color: white;
+            font-family: sans-serif;
+        }
+
+        #bmi-status {
+            color: rgb(16, 81, 61);
+            font-size: 20px;
+            font-family: sans-serif;
+        }
+
+        #bmi-output {
+            color: white;
+            font-size: 40px;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="head">
+            <h1>BMI CALCULATOR</h1>
+        </div><br>
+
+        <div class="gender">
+            <div class="male">
+                <p><i class="fa-solid fa-mars" style="color: white; font-size: 50px;"></i><br><br>FEMALE</p>
+            </div>
+            <div class="male">
+                <p><i class="fa-solid fa-venus" style="color: white; font-size: 50px;"></i><br><br>FEMALE</p>
+            </div>
+        </div>
+
+        <div class="height">
+            <p>
+                <label for="height">HEIGHT</label><br><br>
+                <input type="number" name="height" id="height" placeholder="Meters">
+            </p>
+        </div>
+
+        <div class="width">
+            <p>
+                <label for="width">WEIGHT</label><br><br>
+                <input type="number" name="width" id="width" placeholder="Kg">
+            </p>
+        </div>
+
+        <button type="submit" onclick="calculate()">CALCULATE YOUR BMI</button>
+
+        <div class="modal">
+            <h1>Your Result</h1>
+
+            <div class="bmi-value">
+                <div id="bmi-output"></div>
+            </div>
+            <div class="status">
+                <div id="bmi-status"></div>
+            </div>
+        </div>
+</body>
+
+</html>
